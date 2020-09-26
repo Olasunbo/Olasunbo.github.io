@@ -124,8 +124,8 @@ aside {
 }
 
 aside a {
-  display: block;
-  float: left;
+  display: flex;
+  flex-wrap: wrap;
   width: 50%;
 }
 
