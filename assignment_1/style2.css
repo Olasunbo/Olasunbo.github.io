@@ -1,0 +1,171 @@
+/* || General setup */
+* {
+    box-sizing: border-box;
+  }
+
+.whole, body {
+    margin: 0;
+    padding: 0;
+  }
+
+.whole {
+    font-size: 20px;
+    background-color: #FFCFAB;
+  }
+  
+/* don't know for now
+body {
+    width: 70%;
+    min-width: 800px;
+    margin: 0 auto;
+  }
+  */
+
+
+/* || font */
+
+.name {
+    font-family: 'Patua One', cursive;
+    color: white;
+}
+
+.description {
+    font-family: 'Patua One', cursive;
+    color: black;
+}
+
+.resume {
+    font-family: 'Oregano', italic;
+    color: black;
+}
+  
+.details{
+    font-family: 'Oregano', cursive;
+    color: black;
+}
+
+/* || header layout */
+
+.top {
+    margin-bottom: 15px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    background-color: #40A1AD; 
+    width: 100%;
+  }
+  
+ /* body > * {
+    background-color: red;
+    padding: 1%;
+  }
+  
+  
+  main, header, nav, article, aside, footer, section {
+    background-color: rgba(0, 174, 255, 0.5);
+    padding: 1%;
+  }
+  
+  h1 {
+    flex: 5;
+    text-transform: uppercase;
+  }
+  */
+.name{
+    flex: 5;
+    /*It seems that i only have the space my element takes up in a flex block so 
+    I need to distriubte the white space at the end of my header so that it 
+    pushes my image to the left side*/
+    justify-content: flex-start;
+}
+
+.top img {
+    display: block;
+    height: 60px;
+    justify-content: flex-end;  
+}
+
+
+/* || the rest */
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /*NUMBER7 &?'^'*/
+  }
+
+.content{
+    display: flex; 
+    /*when i don't include this flex direction doesn't work why?*/
+    flex-direction: row;
+    max-width: 960px;
+}
+
+.cover{
+    flex: 1;
+}
+
+.history{
+    flex: 2;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding-left: 1%;
+}
+
+.profile{
+    max-width: 100%;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.profile, .description, .history{
+    background: rgb(240, 240, 240);
+}
+
+.description{
+    font-size: 10px;
+}
+
+
+/* || Responsive part */
+
+@media screen and (max-width: 1000px) {
+    .content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .cover{
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-bottom: 12px;
+    }
+}
+/*  
+  article, section {
+    flex: 4;
+  }
+  
+  aside {
+    flex: 1;
+    margin-left: 10px;
+    padding: 1%;
+  }
+  
+  aside a {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+  }
+  
+  aside img {
+    max-width: 100%;
+  }
+  
+  footer {
+    margin-top: 10px;
+  }
+
+
+  

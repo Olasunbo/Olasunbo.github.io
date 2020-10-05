@@ -1,33 +1,38 @@
-/*Skipped 4  7*/
+/*Skipped  7*/
+* {
+    box-sizing: border-box;
+  }
+
 html {
-    font-size: 10px;
-    background-color: cadetblue;
+    font-size: 20px;
+    background-color: #FFCFAB;
   }
 
 .top{ 
-    display: flex;
-    align-items: center;
     height: 100px;
     width: 100%;
-    flex-wrap: wrap; /*I'm not sure if this is doing this correctly*/
-    background-color: black; 
+    /*flex-wrap: wrap; I'm not sure if this is doing this correctly*/
+    background-color: #40A1AD; 
     color: white;
-    /*justify-content: flex-start;*/
-    /*margin-bottom: 15px; put in wrapper*/
-    /*text-align: left;*/
+    /*display: flex;text-align: center;
+    justify-content: flex-start;
+    margin-bottom: 15px; put in wrapper
+     align-items: center;*/
 }
 
 /*DOES NOT WORK*/
 .top .logo{
     display: flex;
-    max-width: 20%;
     justify-content: flex-end;
+    align-items: center;
+    max-width: 20%;
     /* This aligns items to the end line on main-axis*/ ;
 }
 
 .top .name{
     display: flex;
     justify-content: flex-start;
+    font-family: 'Patua One', cursive;
 }
 /*DOES NOT WORK*/
 
@@ -54,8 +59,9 @@ html {
 .history{
     flex: 2;
      /*Grow to rest of container*/ 
-    background: rgb(209, 111, 111);
+    background: rgb(240, 240, 240);
      /*Just so it's visible*/
+     font-family: 'Patua One', cursive;
 }
 
 .profile{
@@ -67,10 +73,29 @@ html {
 
 .description{
     background: rgb(240, 240, 240);
+    font-family: 'Oregano', cursive;
+}
+
+.resume{
+    font-family: 'Oregano', italic;
+}
+
+.details{
+    font-family: 'Oregano', cursive;
 }
 
 @media screen and (max-width: 1000px) {
-    .description, .profile, .history {   
-      flex-direction: column;
+    .wrapper {   
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .cover{
+        flex-direction: column;
+    }
+    .profile + .description{
+        margin-top: 0;
+        margin-left: 12px;
+
     }
   }
