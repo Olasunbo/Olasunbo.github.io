@@ -20,5 +20,5 @@ btn.onclick = function(){
 
 
 //** 2 inject ordered list */
-let content = document.getElementsByClassName('content'); //targeted the content class
-content.appendChild(list); //added div to this class
+let content = document.getElementById('temp'); //targeted the content class
+content.appendChild(list)//added list to this class
