@@ -8,9 +8,12 @@ list.className = "countries";
 const btn = document.querySelector('button')
 
 //** 5 function to select 25 random countries */
-function select25(){
-
-
+function select25(array){
+    // Shuffle array
+    const shuffled = array.sort(() => 0.5 - Math.random());
+    // Get sub-array of first n elements after shuffled
+    let selected = shuffled.slice(0, 25);
+    return selected;
 }
 
 //** 4 function runs on the click of button */
