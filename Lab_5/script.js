@@ -1,28 +1,3 @@
-/*//Call countries script
-let script = document.createElement('script'); 
-script.src = "countries.js" 
-const test = [
-    "Afghanistan"  ,
-      "Åland Islands",   "AX"  ,
-      "Albania",   "AL"  ,
-      "Algeria",   "DZ"  ,
-      "American Samoa",   "AS"  ,
-      "Andorra",   "AD"  ,
-      "Angola",   "AO"  ,
-      "Anguilla",   "AI"  ,
-      "Antarctica",   "AQ"  ,
-      "Antigua and Barbuda",   "AG"  ,
-      "Argentina",   "AR"  ,
-      "Armenia",   "AM"  ,
-      "Aruba",   "AW"  ,
-      "Australia",   "AU"  ,
-      "Austria",   "AT"  ,
-      "Azerbaijan",   "AZ"  ,
-      "Bahamas",   "BS"  ,
-      "Bahrain",   "BH"  ,
-]
-
-
 //** 2 created ordered list */
 let list = document.createElement('ol');
 
@@ -37,9 +12,13 @@ const btn = document.querySelector('button')
 function select25(array){
     // 6 Shuffle array
     const shuffled = array.sort(() => 0.5 - Math.random());
-    // Get sub-array of first n elements after shuffled
+    // 6 Get sub-array of first n elements after shuffled
     let selected = shuffled.slice(0, 25);
-    //might need to create an array not sure
+    // 10 get the rest of the list 
+    let x = shuffled.slice(25, shuffled.length - 1);
+    //10 Log of nonselected countries
+    console.log(x);
+    //6 return spliced list
     return selected
 }
 
@@ -50,11 +29,11 @@ btn.onclick = function(){
     // 7 add new list to old list
     addme.forEach(function (nlist) {
         let li = document.createElement('li');
+        //8 & 9 normal and bold font
         li.innerHTML = `${nlist.name}, <strong>${nlist.code}</strong>`;
         list.appendChild(li);
     });
 }
-
 
 //** 2 inject ordered list */
 let content = document.getElementById('temp'); //targeted the content class
