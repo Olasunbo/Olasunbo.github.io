@@ -50,7 +50,7 @@ btn.onclick = function(){
     // 7 add new list to old list
     addme.forEach(function (nlist) {
         let li = document.createElement('li');
-        li.textContent = nlist;
+        li.innerHTML = `${nlist.name}, <strong>${nlist.code}</strong>`;
         list.appendChild(li);
     });
 }
