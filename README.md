@@ -1,2 +1,1 @@
-# Olasunbo.github.io
-Class Repository 
+# Dynamic Web Applications (INST377) Class Repository
