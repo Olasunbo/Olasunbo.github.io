@@ -10,6 +10,8 @@ let lon_min = sessionStorage.getItem('lon_min');
 if (title!== null){
 let t = document.getElementById('title');
 t.innerHTML = `${title}`;
+} else {
+    sessionStorage.clear()
 }
 
 if (lat_max!== null){
