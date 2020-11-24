@@ -17,7 +17,7 @@ async function getData() {
                 //Random number within the length of list
                 num = Math.floor(Math.random()*(listSize+1))
 
-                //Get elements of message
+                //Get elements of message WRONG
                 subreddit = json.data.children[num].subreddit;
                 author = json.data.children[num].author_fullname;
                 title = json.data.children[num].title;
@@ -32,15 +32,15 @@ async function getData() {
 
                 //Add a data entry to chartValues with author as the label and ups as the y component
                 let addToChart = {'label':author,y:ups}; 
-                // Gave this. This needs to be added to the 'chartValues'
+                // needs to be added to the 'chartValues'
                 chartValues.push(addToChart)
             }
         })
         .then(values => console.log(chartValues));
-        //chart.render(); // Do you need to remove the comments from here in order to get it to work?
+        chart.render();
 };
 
-window.onload = async function makeChart() {
+window.onload = async function makeChart() { //NO CHART
     getData();
     chart = new CanvasJS.Chart("chartContainer", {
         title: {
@@ -51,7 +51,7 @@ window.onload = async function makeChart() {
             { 
                 type: "column",
                 name: "Popular Reddit",
-                dataPoints: chartValues
+                dataPoints: chartValues //LOOK MORE INTO THIS
             }
         ]
     });
