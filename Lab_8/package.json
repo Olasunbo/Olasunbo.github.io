@@ -1,0 +1,16 @@
+{
+  "name": "lab_8",
+  "version": "1.0.0",
+  "description": "Take 5 random records from the reddit popular.json feed and display them as bulleted items in list as well as the author and upvotes in a bargraphh.",
+
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Olasunbo Salami",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
