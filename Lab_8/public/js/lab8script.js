@@ -33,11 +33,11 @@ async function getData() {
                 //Add a data entry to chartValues with author as the label and ups as the y component
                 let addToChart = {'label':author,y:ups}; 
                 // needs to be added to the 'chartValues'
-                chartValues.push({addToChart})
+                chartValues.push(addToChart)
             }
         })
         .then(values => console.log(chartValues));
-        //chart.render();
+        chart.render();
 };
 
 window.onload = async function makeChart() { //NO CHART
@@ -51,7 +51,7 @@ window.onload = async function makeChart() { //NO CHART
             { 
                 type: "column",
                 name: "Popular Reddit",
-                dataPoints: chartValues //LOOK MORE INTO THIS
+                dataPoints: chartValues
             }
         ]
     });
