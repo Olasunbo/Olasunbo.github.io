@@ -40,7 +40,7 @@ async function getData() {
         chart.render();
 };
 
-window.onload = async function makeChart() { //NO CHART
+window.onload = async function makeChart() {
     getData();
     chart = new CanvasJS.Chart("chartContainer", {
         title: {

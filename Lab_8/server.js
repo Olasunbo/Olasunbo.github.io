@@ -6,7 +6,7 @@ app.use(express.static(__dirname + 'public')); //Serves resources from public fo
 
 // Code here to have the app listen on port 8080
 app.listen(8080,() =>{
-    console.log('Listening at 8080'); //NOT SHOWING UP
+    console.log('Listening at 8080');
 });
 
-//..please provide a console.log message <- ??????? what's the message that it's listening?
+//..please provide a console.log message
