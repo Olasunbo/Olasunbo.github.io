@@ -17,11 +17,11 @@ async function getData() {
                 //Random number within the length of list
                 num = Math.floor(Math.random()*(listSize+1))
 
-                //Get elements of message WRONG
-                subreddit = json.data.children[num].subreddit;
-                author = json.data.children[num].author_fullname;
-                title = json.data.children[num].title;
-                ups = json.data.children[num].ups; 
+                //Get elements of message
+                subreddit = json.data.children[num].data.subreddit;
+                author = json.data.children[num].data.author_fullname;
+                title = json.data.children[num].data.title;
+                ups = json.data.children[num].data.ups;
 
                 //Add a new <li> element with the message to the 'redditList' element 
                 let message = "<b>Subreddit </b>: " + subreddit + " <b>Author</b>:" 
