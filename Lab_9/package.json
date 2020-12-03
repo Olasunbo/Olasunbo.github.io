@@ -1,5 +1,5 @@
 {
-  "name": "Lab_9",
+  "name": "lab_9",
   "version": "1.0.0",
   "description": "Lab 9 - NodeJS, Express, SQLite",
   "main": "server.js",
