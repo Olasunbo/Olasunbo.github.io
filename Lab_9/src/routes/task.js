@@ -11,7 +11,7 @@ router.post('/task', (req, res) => {
     }
 
     let task = {
-        name: req.body.taskName,
+        name: req.body.taskName, 
         dueDate: req.body.taskDueDate // Example 2020-11-24
     }
     
@@ -37,8 +37,8 @@ router.get('/task', (req, res) => {
         return res.status(400).send('Missing URL parameter id')
     }
     let sql = "select * from tasklist where id = ?"
-    console.log("req.query.taskId: " + req.body.taskId)
-    let params = [req.body.taskId]
+    console.log("req.query.taskId: " + req.query.taskId)
+    let params = [req.query.taskId] //gets the id specified-> query because it's asking?
     db.get(sql, params, (err, row) => {
         if (err) {
           res.status(400).json({"error":err.message});
