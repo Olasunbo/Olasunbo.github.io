@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-let taskRoute = require('./routes/task.js') //lead to the folder with all the task functions
+let taskRoute = require('./routes/task') //lead to the folder with all the task functions
 let path = require('path')
 let bodyParser = require('body-parser')
 let db = require("./database.js")
