@@ -94,7 +94,7 @@ router.delete('/task', (req, res) => {
                 res.status(400).json({"error": res.message})
                 return;
             }
-            res.json({"message":"deleted", changes: this.changes})
+            res.json({"message":"success", changes: this.changes})
     });
 })
 
