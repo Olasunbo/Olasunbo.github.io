@@ -33,11 +33,11 @@ router.post('/task', (req, res) => {
 
 //GET
 router.get('/task', (req, res) => {
-    if (!data.id) {
+    if (!req.query.taskId) { //it wants a query computer is asking what do you want
         return res.status(400).send('Missing URL parameter id')
     }
     let sql = "select * from tasklist where id = ?"
-    console.log("req.query.taskId: " + req.query.taskId)
+    console.log("req.query.taskId: " + req.query.taskId) //log what it's asking you to
     let params = [req.query.taskId] //gets the id specified-> query because it's asking?
     db.get(sql, params, (err, row) => {
         if (err) {
@@ -55,8 +55,8 @@ router.get('/task', (req, res) => {
 router.put('/task', (req, res) => {
     console.log("PUT called")
     var data = {
-        id : req.body.taskId,
-        taskName: req.body.taskName
+        id : req.query.taskId, //asking what do you want from me
+        taskName: req.body.taskName //needs new values from body to assign id
         
     }
     console.log("data.id:" + data.id + " name:" + data.taskName)
@@ -83,9 +83,12 @@ router.put('/task', (req, res) => {
 
 //Delete
 router.delete('/task', (req, res) => {
+    if(!req.query.taskId){ //make sure that something is in the field
+        return res.status(400).send('Missing URL parameter email')
+    }
     db.run(
-        'DELETE FROM user WHERE id = ?',
-        req.body.id,
+        'DELETE FROM tasklist WHERE id = ?', //name of your table
+        [req.query.taskId], //brackets for your parameters
         function (err, result) {
             if (err){
                 res.status(400).json({"error": res.message})
