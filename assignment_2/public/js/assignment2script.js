@@ -262,7 +262,7 @@ function submitNewPerson() {
   data = { 'firstName': firstName };
 
   //console.log(JSON.stringify(data))
-  let personURL = "http://localhost:4000/person"; //why?
+  let personURL = "http://localhost:4000/person"; 
   const fetchPromise = fetch(personURL, {
     method: 'POST', headers: {
       'Content-Type': 'application/json'
@@ -294,6 +294,65 @@ function submitNewPerson() {
     .catch((err) => {
       console.log(err);
       document.getElementById("postNewPersonContent").innerHTML = "Invalid person : " + data.firstName;
+    });
+
+}
+
+
+
+/*
+ ------ ADD NEW GROUP ------
+*/
+function submitNewGroup() {
+
+  console.log("Called submitNewGroup");
+  let groupName = document.getElementById("addGroupName").value;
+
+  console.log("groupName:" + groupName);
+  data = { 'groupName': groupName };
+
+  //console.log(JSON.stringify(data))
+  //calling to the post method for groups within the server
+  let groupURL = "http://localhost:4000/group"; 
+  const fetchPromise = fetch(groupURL, {
+    //??confirming post method and activating it??
+    method: 'POST', headers: {
+      'Content-Type': 'application/json'
+
+    }, body: JSON.stringify(data)
+  });
+  //this is created by running the group js in the server
+  let groupId; 
+  
+  //?? come back when you have a deeper understanding of promises??
+  fetchPromise
+    .then((response) => {
+      return response.json();
+    })
+    .then((group) => {
+      //telling peeps what we are doing
+      console.log("Here POST group");
+      console.log(group);
+
+      //creating an error message if nothing runs
+      let message = "ERROR";
+      //if the group ?? requested is weird (doesn't fit standard or possibly some regex)
+      if (typeof group.id !== "undefined") {
+        groupName = group.data.groupName;
+        groupId = group.id;
+        message = "Message: " + group.message + " groupName: " + groupName + "<br>groupId: " + groupId + "<br> ";
+      }
+      //if the group ?? is weird (doesn't fit standard or possibly some regex)
+      else if(typeof group !== "undefined"){
+        message = "Message: " + group.message ;
+      }
+      //posting whatever nonsense comes from above
+      document.getElementById("postNewGroupContent").innerHTML = message;
+    })
+    //??log in error files if whatever comes out is invalid in general??
+    .catch((err) => {
+      console.log(err);
+      document.getElementById("postNewGroupContent").innerHTML = "Invalid group : " + data.groupName;
     });
 
 }
