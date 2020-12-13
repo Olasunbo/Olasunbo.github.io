@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Bill Farmer",
+  "author": "Olasunbo Salami",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.6"

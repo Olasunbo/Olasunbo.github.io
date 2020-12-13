@@ -262,7 +262,7 @@ function submitNewPerson() {
   data = { 'firstName': firstName };
 
   //console.log(JSON.stringify(data))
-  let personURL = "http://localhost:4000/person";
+  let personURL = "http://localhost:4000/person"; //why?
   const fetchPromise = fetch(personURL, {
     method: 'POST', headers: {
       'Content-Type': 'application/json'
@@ -270,11 +270,12 @@ function submitNewPerson() {
     }, body: JSON.stringify(data)
   });
 
-  let personId;
+  let personId; //this is from the people js file that is in the server ...
   fetchPromise
     .then((response) => {
       return response.json();
     })
+    //to confirm post?
     .then((person) => {
       console.log("Here POST person");
       console.log(person);
