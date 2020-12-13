@@ -32,7 +32,7 @@ groupRouter.post('/group', async (req, res) => {
   }
 
   // First make sure that a record doesn't already exist
-  let checkIfExistSql = "select * from groups where groupName = ?"
+  let checkIfExistSql = "select * from groups where name = ?"
   //??log what they asked for in the console to check??
   console.log("req.body.groupName: " + req.body.groupName)
   //make some variables for sql stuff
@@ -66,7 +66,7 @@ groupRouter.post('/group', async (req, res) => {
   if(nameExists)
     return;
   
-  var insertsql = 'INSERT INTO groups (groupName) VALUES (?)'
+  var insertsql = 'INSERT INTO groups (name) VALUES (?)'
   db.run(insertsql, params, function (err, result) {
     if (err) {
       res.status(400).json({ "error": err.message })
