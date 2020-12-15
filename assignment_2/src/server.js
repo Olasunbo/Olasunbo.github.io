@@ -18,6 +18,7 @@ app.use(taskRoute)
 app.use(groupRoute)
 app.use(peopleRoute)
 
+
 app.use(express.static('public'))
 const PORT = process.env.PORT || 4000
 

@@ -40,6 +40,19 @@ router.post('/task', (req, res) => {
     
 })
 
+//GET all tasks
+router.get('/allTasks', (req, res) => {
+    console.log("Get all tasks");
+    let sql = "select taskname from tasks";
+    db.all(sql,  (err, row) => {
+        if (err) {
+            res.status(400).json({"error":err.message});
+            return;
+        }
+        
+        res.end(JSON.stringify(row));
+        });
+    })
 
 //GET
 router.get('/task', (req, res) => {

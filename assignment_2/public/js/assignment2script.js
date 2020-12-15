@@ -357,6 +357,58 @@ function submitNewGroup() {
 
 }
 
+
+
+/*
+ ------ SEARCH TASKS ------
+*/
+// assitance from https://www.youtube.com/watch?v=y4gZMJKAeWs
+//let settings = { method: "Get" };
+// need to set endpoint as a json file of the list of tasks that I currently have
+let searchURL = "http://localhost:4000/allTasks"; 
+//create an empty arrary for results from ^
+let tasks = [];
+const fetchPromise = fetch(searchURL);
+fetchPromise
+  .then(response => response.json())
+  .then(data => tasks.push(...data))
+
+//findmatches function - VIDEO
+function findMatches(word, tasks){
+  return tasks.filter( chore => {
+    // find the word all over string and don't care about case
+    const regex = new RegExp(word, 'gi');
+    return chore.taskName.match(regex) 
+    }
+  )
+}
+
+// display matches function -VIDEO
+function displayMatches(){
+  const matchArray = findMatches(this.value, tasks);
+  const html = matchArray.map(chore => {
+    const regex = new RegExp(this.value, 'gi');
+    const taskname = chore.taskName.replace(regex, `<mark>
+    ${this.value}</mark>`);
+    return `
+    <li>
+      <span class ="item">${taskname}</span>
+    </li>
+  `;
+  });
+  suggestions.innerHTML = html;
+}
+
+//event listners and queryselectors 
+const searchInput = document.getElementById('findtasks');
+const suggestions = document.getElementById('suggestions');
+
+searchInput.addEventListener('change', displayMatches);
+searchInput.addEventListener('keyup', displayMatches);
+
+
+
+
 /*
    ------------   Code for onload of page ------------
    1) Fills out drop down boxes
@@ -367,7 +419,7 @@ function addPTag() {
   document.body.appendChild(pTag);          // Append <p> to <body>
 }
 
-let groupValues = [];
+let groupValues = []; //?? don't know where this is applied
 let settings = { method: "Get" };
 
 async function getPageData(prepend = "") {
