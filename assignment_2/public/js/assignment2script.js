@@ -36,7 +36,7 @@ function submitTask() {
     .then((task) => {
       console.log("Here POST");
       console.log(task);
-      let taskId, taskName, taskDate;
+      let taskId, taskName, taskDueDate;
       let message = "ERROR: " + task.message;
       if (typeof task.id !== "undefined") {
         taskName = task.data.name;

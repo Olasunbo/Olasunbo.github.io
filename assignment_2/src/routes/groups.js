@@ -27,7 +27,7 @@ groupRouter.post('/group', async (req, res) => {
   }
 
   let group = {
-    //what user of the site requested on the site
+    //what user of the site requested on the site use what you kknow
     groupName: req.body.groupName
   }
 
